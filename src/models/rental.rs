@@ -1,12 +1,20 @@
 use chrono::NaiveDate;
 
-struct Rental {
-    id: u64,
-    item_id: u64,
-    user_id: u64,
-    start: NaiveDate,
-    end: NaiveDate,
-    current_states: String,
-    estimated_time: u8,
-    delivary_address: String,
+pub struct Rental {
+    pub id: u64,
+    pub item_id: u64,
+    pub user_id: u64,
+    pub start: NaiveDate,
+    pub end: NaiveDate,
+    pub current_states: CurrentStatus,
+    pub estimated_time: u8,
+    pub delivary_address: String,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum CurrentStatus {
+    Pending,
+    Shipped,
+    Delivered,
+    Cancelled,
 }

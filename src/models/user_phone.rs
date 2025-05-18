@@ -1,4 +1,4 @@
-struct User_phone {
-    id: u64,
-    phone: String,
+pub struct User_phone {
+    pub id: u64,
+    pub phone: String,
 }

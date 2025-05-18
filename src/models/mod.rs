@@ -8,3 +8,5 @@ pub mod rental;
 pub mod review;
 pub mod user;
 pub mod user_phone;
+
+pub use user::User;

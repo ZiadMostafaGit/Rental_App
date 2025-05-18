@@ -1,8 +1,13 @@
-struct item {
-    id: u64,
-    owner_id: u64,
-    title: String,
-    description: String,
-    price: u64,
-    status: String,
+pub struct item {
+    pub id: u64,
+    pub owner_id: u64,
+    pub title: String,
+    pub description: String,
+    pub price: u64,
+    pub status: Status,
+}
+
+pub enum Status {
+    Avelable,
+    NotAvelable,
 }

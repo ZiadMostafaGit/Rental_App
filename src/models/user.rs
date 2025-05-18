@@ -1,13 +1,25 @@
-struct user {
-    id: i64,
-    first_name: String,
-    last_name: String,
-    role: String,
-    gender: String,
-    state: String,
-    city: String,
-    street: String,
-    score: u8,
-    email: String,
-    password: String,
+pub struct User {
+    pub id: i64,
+    pub first_name: String,
+    pub last_name: String,
+    pub role: String,
+    pub gender: String,
+    pub state: String,
+    pub city: String,
+    pub street: String,
+    pub score: u8,
+    pub email: String,
+    pub password: String,
+}
+
+pub enum Gender {
+    male,
+    female,
+    other,
+}
+
+pub enum Role {
+    admin,
+    lender,
+    customer,
 }

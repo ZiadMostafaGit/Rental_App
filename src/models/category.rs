@@ -1,4 +1,4 @@
-struct category {
-    id: u64,
-    name: String,
+pub struct category {
+    pub id: u64,
+    pub name: String,
 }
