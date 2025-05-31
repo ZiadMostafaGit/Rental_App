@@ -11,15 +11,3 @@ pub struct User {
     pub email: String,
     pub password: String,
 }
-
-pub enum Gender {
-    male,
-    female,
-    other,
-}
-
-pub enum Role {
-    admin,
-    lender,
-    customer,
-}

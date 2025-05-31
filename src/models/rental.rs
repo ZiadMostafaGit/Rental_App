@@ -6,15 +6,15 @@ pub struct Rental {
     pub user_id: u64,
     pub start: NaiveDate,
     pub end: NaiveDate,
-    pub current_states: CurrentStatus,
+    pub current_states: String,
     pub estimated_time: u8,
     pub delivary_address: String,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum CurrentStatus {
-    Pending,
-    Shipped,
-    Delivered,
-    Cancelled,
-}
+// #[derive(Debug, Clone, PartialEq, Eq)]
+// pub enum CurrentStatus {
+//     Pending,
+//     Shipped,
+//     Delivered,
+//     Cancelled,
+// }

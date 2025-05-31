@@ -1,15 +1,27 @@
+use std::fmt::Display;
 use std::io::ErrorKind;
 
-use crate::models::user::Gender;
 use crate::models::User;
+use mysql::from_value;
 use mysql::params;
 use mysql::Conn;
 use mysql::Error as MySqlError;
-use mysql::MySqlError;
 use mysql::{prelude::*, Opts, OptsBuilder, Pool, PooledConn};
 
 struct user_repo {
     pool: Pool,
+}
+
+#[derive(Debug)]
+pub enum UpdateUserError {
+    InvalidRoleChange,
+    MySql(mysql::Error),
+}
+
+impl From<mysql::Error> for UpdateUserError {
+    fn from(err: mysql::Error) -> Self {
+        UpdateUserError::MySql(err)
+    }
 }
 
 impl user_repo {
@@ -290,9 +302,9 @@ impl user_repo {
         Ok(conn.last_insert_id() as i64)
     }
 
-    pub fn update_user(&self, user: &User) -> Result<(), MySqlError> {
+    pub fn update_user(&self, user: &User) -> Result<(), UpdateUserError> {
         if (user.role == "admin") {
-            Err(MySqlError::MySqlError())
+            return Err(UpdateUserError::InvalidRoleChange);
         }
 
         let mut conn = self.connect()?;
