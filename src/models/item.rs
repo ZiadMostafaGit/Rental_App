@@ -3,7 +3,7 @@ pub struct Item {
     pub owner_id: u64,
     pub title: String,
     pub description: String,
-    pub price: u64,
+    pub price: f64,
     pub status: String,
     pub images: Vec<String>,
 }
